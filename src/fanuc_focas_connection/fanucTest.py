@@ -22,9 +22,14 @@ buf=ODBSYS()
 mylib.cnc_allclibhndl3.argtypes = c_char_p,c_ushort,c_long,POINTER(c_ushort)
 mylib.cnc_allclibhndl3.restype = c_short
 
-#cnc_allclibhndl3 prototype
+# prototype
 
 
-ret=mylib.cnc_allclibhndl3(b'192.168.0.100',8193,1,byref(h))
+ret=mylib.cnc_allclibhndl3(b'192.168.0.100',8193,5,byref(h))
+
+
+
+
+
 print(ret)
 
