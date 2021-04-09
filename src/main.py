@@ -18,3 +18,6 @@ if __name__ == "__main__":
     window = mainWindow()
     window.show()
     sys.exit(app.exec_())
+
+print(choucroute)
+print(choux)
