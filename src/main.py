@@ -4,7 +4,7 @@ from PySide2.QtCore import *
 
 import sys
 
-from fanucCNCgui import Ui_MainWindow
+from gui.fanucCNCgui import Ui_MainWindow
 
 class mainWindow(QMainWindow):
     def __init__(self):
