@@ -23,5 +23,5 @@ if __name__ == "__main__":
     sys.exit(app.exec_())
 """
 PyFwlib_instance = PyFwlib()
-PyFwlib_instance.connect('192.168.0.12', 8193)
+PyFwlib_instance.connect('132.207.165.127', 8193)
 PyFwlib_instance.rdSpeed()
