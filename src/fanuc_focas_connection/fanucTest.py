@@ -1,4 +1,5 @@
 from ctypes import *
+import time
 
 Fwlib32DLL = windll.LoadLibrary("./Fwlib32.dll")
 
@@ -72,6 +73,25 @@ class PyFwlib():
             ret = Fwlib32DLL.cnc_rdspeed(self.__fwlibHndl, -1, byref(speed))
             print("spindle speed : " + str(speed.acts.data))
             print("spindle unit : " + str(speed.acts.unit))
-
+            return(speed.acts.data)
         else:
             print("not connected")
+
+
+
+PyFwlib_instance = PyFwlib()
+PyFwlib_instance.connect('132.207.165.127', 8193)
+
+a = list()
+"""
+for k in range(10):
+    vitesse = PyFwlib_instance.rdSpeed()
+    a.append(vitesse)
+    time.sleep(0.2)
+
+"""
+while(1):
+    vitesse = PyFwlib_instance.rdSpeed()
+    a.append(vitesse)
+    #time.sleep(0.2)
+print(a)
