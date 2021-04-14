@@ -6,6 +6,9 @@ import sys
 
 from gui.fanucCNCgui import Ui_MainWindow
 
+from fanuc_focas_connection.fanucTest import *
+
+"""
 class mainWindow(QMainWindow):
     def __init__(self):
         super(mainWindow, self).__init__()
@@ -18,6 +21,7 @@ if __name__ == "__main__":
     window = mainWindow()
     window.show()
     sys.exit(app.exec_())
-
-print(choucroute)
-print(choux)
+"""
+PyFwlib_instance = PyFwlib()
+PyFwlib_instance.connect('192.168.0.12', 8193)
+PyFwlib_instance.rdSpeed()

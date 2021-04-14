@@ -1,6 +1,6 @@
 from ctypes import *
 
-mylib = windll.LoadLibrary("./Fwlib32.dll")
+Fwlib32DLL = windll.LoadLibrary("./Fwlib32.dll")
 
 class ODBSYS(Structure):
     pass
@@ -13,23 +13,65 @@ class ODBSYS(Structure):
     ("version",c_char*4),
     ("axes",c_char*2),]
 
+class SPEEDELM(Structure):
+    pass
+    _fields_ =[
+        ("data", c_long),
+        ("dec", c_short),
+        ("unit", c_short),
+        ("reserve", c_short),
+        ("name", c_char),
+        ("suff", c_char),]
+
+class ODBSPEED(Structure):
+    pass
+    _fields_=[
+        ("actf", SPEEDELM),
+        ("acts", SPEEDELM),]
+
+
 h=c_ushort()
-pt=pointer(h)
 ret=c_short()
 buf=ODBSYS()
 
 #cnc_allclibhndl3 prototype
-mylib.cnc_allclibhndl3.argtypes = c_char_p,c_ushort,c_long,POINTER(c_ushort)
-mylib.cnc_allclibhndl3.restype = c_short
+Fwlib32DLL.cnc_allclibhndl3.argtypes = c_char_p,c_ushort,c_long,POINTER(c_ushort)
+Fwlib32DLL.cnc_allclibhndl3.restype = c_short
 
-# prototype
-
-
-ret=mylib.cnc_allclibhndl3(b'192.168.0.100',8193,5,byref(h))
-
+#cnc_rdspeed
+Fwlib32DLL.cnc_rdspeed.argtypes = c_ushort, c_short, POINTER(ODBSPEED)
+Fwlib32DLL.cnc_rdspeed.restype = c_short
 
 
+class PyFwlib():
 
+    def __init__(self):
 
-print(ret)
+        self.__fwlibHndl = c_ushort()
+        self.__connected = False
 
+    def connect(self, ip, port, timeout=1):
+        """
+        A simple connection to the CNC, do this before using PyFwlib instance.
+        """
+
+        ret = Fwlib32DLL.cnc_allclibhndl3(ip.encode('ascii'), port , timeout, byref(self.__fwlibHndl))
+
+        if ret == 0:
+            print("Connection successful")
+            print("Socket handle: " + str(self.__fwlibHndl))
+            self.__connected = True
+        
+        else:
+            print("Connection failed")
+            print("Error code :" + str(ret))
+
+    def rdSpeed(self):
+        if self.__connected == True:
+            speed = ODBSPEED()
+            ret = Fwlib32DLL.cnc_rdspeed(self.__fwlibHndl, -1, byref(speed))
+            print("spindle speed : " + str(speed.acts.data))
+            print("spindle unit : " + str(speed.acts.unit))
+
+        else:
+            print("not connected")
