@@ -2313,11 +2313,11 @@ typedef struct odbophis4 {/*--*/
             short   dummy1;
             long    g_modal[10];/* G code Modal */
             char    g_dp[10];   /* #7:1 Block */
-                                /* #6`#0 dp*/
+                                /* #6ï¿½`#0 dp*/
             short   dummy2;
             long    a_modal[10];/* B,D,E,F,H,M,N,O,S,T code Modal */
             char    a_dp[10];   /* #7:1 Block */
-                                /* #6`#0 dp*/
+                                /* #6ï¿½`#0 dp*/
             short   dummy3;
             long    abs_pos[32];/* Abs pos */
             char    abs_dp[32]; /* Abs dp  */
@@ -2342,11 +2342,11 @@ volatile    char    alm_msg[64];/* alarm message */
             short   dummy1;
             long    g_modal[10];/* G code Modal */
             char    g_dp[10];   /* #7:1 Block */
-                                /* #6`#0 dp*/
+                                /* #6ï¿½`#0 dp*/
             short   dummy2;
             long    a_modal[10];/* B,D,E,F,H,M,N,O,S,T code Modal */
             char    a_dp[10];   /* #7:1 Block */
-                                /* #6`#0 dp*/
+                                /* #6ï¿½`#0 dp*/
             short   dummy3;
             long    abs_pos[32];/* Abs pos */
             char    abs_dp[32]; /* Abs dp  */
@@ -2543,11 +2543,11 @@ typedef struct odbahis5 {
         char    alm_msg[64]; /* alarm message */
 		long    g_modal[10]; /* G code Modal */
 		char    g_dp[10];    /* #7:1 Block */
-		                     /* #6`#0 dp*/
+		                     /* #6ï¿½`#0 dp*/
         short   dummy1;
 		long    a_modal[10]; /* B,D,E,F,H,M,N,O,S,T code Modal */
 		char    a_dp[10];    /* #7:1 Block */
-		                     /* #6`#0 dp*/
+		                     /* #6ï¿½`#0 dp*/
         short   dummy2;
 		long    abs_pos[32]; /* Abs pos */
 		char    abs_dp[32];  /* Abs dp */
@@ -2655,7 +2655,7 @@ typedef struct odbshp {
     short           ob_type ;       /* object type */
     unsigned short  obj_no ;        /* object number */
     unsigned short  shp_no ;        /* shape number */
-    unsigned short  fig_ele[10] ;    /* figure element 1`6 */
+    unsigned short  fig_ele[10] ;    /* figure element 1ï¿½`6 */
     long            ref_pos[3] ;    /* reference position */
     long            tool_ref[3] ;   /* tool reference position */
     long            tool_dir[3] ;   /* tool direction */
@@ -2692,7 +2692,7 @@ typedef struct odbmva {
     struct {
         unsigned short  axis_no ;   /* axis number */
         unsigned short  mov_dir ;   /* moving direction */
-    } lin_ax[3] ;                   /* line axis(1`3) */
+    } lin_ax[3] ;                   /* line axis(1ï¿½`3) */
 
     struct {
         unsigned short  axis_no ;   /* axis number */
@@ -2701,12 +2701,12 @@ typedef struct odbmva {
         long            inc_ang ;   /* inclination angle */
         unsigned short  rot_dir ;   /* rotational direction */
         short           reserve ;   /* reserve */
-    } rot_ax[2] ;                   /* rotating axis(1`2) */
+    } rot_ax[2] ;                   /* rotating axis(1ï¿½`2) */
 
     struct {
         unsigned short  master ;    /* master rotating axis */
         unsigned short  slave ;     /* slave rotating axis */
-    } rot_ele[6] ;                  /* rotating element(1`6) */
+    } rot_ele[6] ;                  /* rotating element(1ï¿½`6) */
 } ODBMVA ;
 
 /* cnc_rdtdicrntshapeinf:read current shape data */
@@ -2893,9 +2893,9 @@ typedef struct odbsramstat {
 
 /* read DMG Netservice status information */
 typedef struct out_statinfo_dmg {
-     short  dummy[1];     /* –¢g—p                       */
-     short  dmg;          /* DMG NetserviceƒXƒe[ƒ^ƒXî•ñ */
-     short  dummy1[7];    /* –¢g—p                       */
+     short  dummy[1];     /* ï¿½ï¿½ï¿½gï¿½p                       */
+     short  dmg;          /* DMG Netserviceï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½ï¿½ï¿½ */
+     short  dummy1[7];    /* ï¿½ï¿½ï¿½gï¿½p                       */
 } OUT_STATINF_DMG ;
 
 /* cnc_alarm:read alarm status */
@@ -5818,37 +5818,37 @@ typedef struct tagODBIFSBSYSALM {
 } ODBIFSBSYSALM;
 
 typedef struct tagODBIFSBFSSBUNT {
-    short   slv_unt_num;    /* ƒXƒŒ[ƒuƒ†ƒjƒbƒg”Ô† */
-    short   fssb_unt_num;   /* FSSBƒ†ƒjƒbƒg”Ô† */
-    char    name[4];        /* –¼Ì */
+    short   slv_unt_num;    /* ï¿½Xï¿½ï¿½ï¿½[ï¿½uï¿½ï¿½ï¿½jï¿½bï¿½gï¿½Ôï¿½ */
+    short   fssb_unt_num;   /* FSSBï¿½ï¿½ï¿½jï¿½bï¿½gï¿½Ôï¿½ */
+    char    name[4];        /* ï¿½ï¿½ï¿½ï¿½ */
 } ODBIFSBFSSBUNT;
 
 typedef struct tagODBIFSBCOMSTATDTL {
-    long    error_inf;      /* ƒGƒ‰[î•ñ */
-    long    jitter_inf;     /* ƒWƒbƒ^î•ñ */
-    char    n_warning;      /* ƒmƒCƒYƒ[ƒjƒ“ƒOƒtƒ‰ƒO */
-    char    j_warning;      /* ƒWƒbƒ^ƒ[ƒjƒ“ƒOƒtƒ‰ƒO */
-    char    reserve[2];     /* ƒŠƒU[ƒu */
+    long    error_inf;      /* ï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ */
+    long    jitter_inf;     /* ï¿½Wï¿½bï¿½^ï¿½ï¿½ï¿½ */
+    char    n_warning;      /* ï¿½mï¿½Cï¿½Yï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½tï¿½ï¿½ï¿½O */
+    char    j_warning;      /* ï¿½Wï¿½bï¿½^ï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½tï¿½ï¿½ï¿½O */
+    char    reserve[2];     /* ï¿½ï¿½ï¿½Uï¿½[ï¿½u */
 } ODBIFSBCOMSTATDTL;
 
 typedef struct tagODBIFSBWARNINGMSG {
-    short   line;     /* ƒ[ƒjƒ“ƒO”­¶ƒ‰ƒCƒ“”Ô† */
-    short   slv_src;  /* ƒ[ƒjƒ“ƒO”­¶ƒXƒŒ[ƒu”Ô†(’ÊMŒ³) */
-    short   slv_dst;  /* ƒ[ƒjƒ“ƒO”­¶ƒXƒŒ[ƒu”Ô†(’ÊMæ) */
-    short   type;     /* ”­¶ƒ[ƒjƒ“ƒOƒ^ƒCƒv */
-    char    wm_typ[32]; /* ƒ[ƒjƒ“ƒOƒƒbƒZ[ƒW(Ü°Æİ¸Şí—Ş) */
-    char    wm_pnt[32]; /* ƒ[ƒjƒ“ƒOƒƒbƒZ[ƒW(Ü°Æİ¸Ş‰ÓŠ) */
+    short   line;     /* ï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Ôï¿½ */
+    short   slv_src;  /* ï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½uï¿½Ôï¿½(ï¿½ÊMï¿½ï¿½) */
+    short   slv_dst;  /* ï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½[ï¿½uï¿½Ôï¿½(ï¿½ÊMï¿½ï¿½) */
+    short   type;     /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½^ï¿½Cï¿½v */
+    char    wm_typ[32]; /* ï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W(Ü°ï¿½İ¸Şï¿½ï¿½) */
+    char    wm_pnt[32]; /* ï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W(Ü°ï¿½İ¸Ş‰Óï¿½) */
 } ODBIFSBWARNINGMSG;
 
 typedef struct tagODBIFSBWARNHSTMSG {
-    short   year;       /* ƒ[ƒjƒ“ƒO”­¶‚µ‚½”N */
-    char    month;      /*                   Œ */
-    char    day;        /*                   “ú */
-    char    hour;       /*                    */
-    char    minute;     /*                   •ª */
-    char    second;     /*                   •b */
+    short   year;       /* ï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½N */
+    char    month;      /*                   ï¿½ï¿½ */
+    char    day;        /*                   ï¿½ï¿½ */
+    char    hour;       /*                   ï¿½ï¿½ */
+    char    minute;     /*                   ï¿½ï¿½ */
+    char    second;     /*                   ï¿½b */
     char    dummy;
-    ODBIFSBWARNINGMSG   msg_dat;    /*$ ƒƒbƒZ[ƒW $*/
+    ODBIFSBWARNINGMSG   msg_dat;    /*$ ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W $*/
 } ODBIFSBWARNHSTMSG;
 
 /*-----------------------------------*/
@@ -9709,10 +9709,10 @@ typedef struct odbplsdata {
 	short	channel_state;	/* Channel Connect State */
 	short	reserve1;		/* reserve */
 	short	reserve2;		/* reserve */
-	short	alarm[4];		/* Alarm Detail(CH1`4) */
-	short	cmd_val[4];		/* Command Value(CH1`4) */
+	short	alarm[4];		/* Alarm Detail(CH1ï¿½`4) */
+	short	cmd_val[4];		/* Command Value(CH1ï¿½`4) */
 	short	reserve3[4];		/* reserve */
-	long	total_val[4];	/* Total Value(CH1`4) */
+	long	total_val[4];	/* Total Value(CH1ï¿½`4) */
 	long	reserve4[4];	/* reserve */
 } ODBPLSDATA;
 

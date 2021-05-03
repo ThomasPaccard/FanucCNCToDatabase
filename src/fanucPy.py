@@ -78,20 +78,3 @@ class PyFwlib():
             print("not connected")
 
 
-
-PyFwlib_instance = PyFwlib()
-PyFwlib_instance.connect('132.207.165.127', 8193)
-
-a = list()
-"""
-for k in range(10):
-    vitesse = PyFwlib_instance.rdSpeed()
-    a.append(vitesse)
-    time.sleep(0.2)
-
-"""
-while(1):
-    vitesse = PyFwlib_instance.rdSpeed()
-    a.append(vitesse)
-    #time.sleep(0.2)
-print(a)
