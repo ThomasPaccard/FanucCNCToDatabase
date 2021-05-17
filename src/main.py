@@ -6,7 +6,7 @@ import sys
 
 from gui.gui import MainWindow
 
-from fanucPy import *
+
 
 
 #pip install influxdb-client
