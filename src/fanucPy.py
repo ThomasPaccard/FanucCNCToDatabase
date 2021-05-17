@@ -62,10 +62,12 @@ class PyFwlib():
             print("Connection successful")
             print("Socket handle: " + str(self.__fwlibHndl))
             self.__connected = True
+            return 0
         
         else:
             print("Connection failed")
             print("Error code :" + str(ret))
+            return -1
 
     def rdSpeed(self):
         if self.__connected == True:
@@ -76,5 +78,6 @@ class PyFwlib():
             return(speed.acts.data)
         else:
             print("not connected")
+            
 
 
